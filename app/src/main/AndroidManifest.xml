@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.abner.base">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VipBase">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".viewmodel.TestViewModelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bar.ActionBarTextActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bar.ActionBarImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".repository.TestRepositoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".status.StatusBarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".status.StatusBarChangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".page.TestPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bus.BusActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

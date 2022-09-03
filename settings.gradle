@@ -1,0 +1,3 @@
+rootProject.name = "VipBase"
+include ':app'
+include ':vip_base'
