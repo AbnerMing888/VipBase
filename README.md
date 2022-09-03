@@ -31,7 +31,6 @@ dependencies {
 
 |  相关功能  |  概述  |
 |  ----  |  ----  |
-
 |  BaseActivity  |  逻辑比较简单的Activity可以继承此类  |
 |  BaseVMActivity  |  使用ViewModel的Activity可以继承此类  |
 |  BaseFragment  |  逻辑比较简单的Fragment可以继承此类  |
