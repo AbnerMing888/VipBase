@@ -42,6 +42,7 @@ dependencies {
 |  FragmentPagerAdapter |  PagerAdapter父类结合TabLayout和ViewPager使用  |
 |  StatusBar  |  状态栏工具类，可以实现沉浸式，透明等  |
 |  ActionBarView  |  自定义的标题栏  |
+|  LiveDataBus |  事件消息总线  |
 
 
 ## VipBase相关功能Demo效果图

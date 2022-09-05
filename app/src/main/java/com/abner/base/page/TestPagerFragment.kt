@@ -9,7 +9,8 @@ import com.vip.base.fragment.BaseFragment
  *DATE:2022/9/1
  *INTRODUCE:测试Fragment,简单继承
  */
-class TestPagerFragment : BaseFragment<FragmentTestPagerBinding>(R.layout.fragment_test_pager) {
+class TestPagerFragment : BaseFragment
+    <FragmentTestPagerBinding>(R.layout.fragment_test_pager) {
 
     override fun initData() {
 

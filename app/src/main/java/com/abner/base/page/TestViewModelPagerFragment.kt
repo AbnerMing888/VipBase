@@ -10,7 +10,8 @@ import com.vip.base.fragment.BaseVMFragment
  *INTRODUCE:测试Fragment,ViewModel继承
  */
 class TestViewModelPagerFragment :
-    BaseVMFragment<FragmentTestPagerBinding, TestFragmentViewModel>(R.layout.fragment_test_pager) {
+    BaseVMFragment<FragmentTestPagerBinding,
+            TestFragmentViewModel>(R.layout.fragment_test_pager) {
 
 
     override fun initVMData() {
