@@ -34,13 +34,13 @@ dependencies {
 
 |  相关功能  |  概述  |  点击查看使用方式  |
 |  ----  |  ----  |  ----  |
-|  BaseActivity  |  逻辑比较简单的Activity可以继承此类  |
-|  BaseVMActivity  |  使用ViewModel的Activity可以继承此类  |
-|  BaseFragment  |  逻辑比较简单的Fragment可以继承此类  |
-|  BaseVMFragment  |  使用ViewModel的Fragment可以继承此类  |
-|  BaseViewModel  |  ViewModel继承此类  |
-|  FragmentPagerAdapter |  PagerAdapter父类结合TabLayout和ViewPager使用  |
-|  StatusBar  |  状态栏工具类，可以实现沉浸式，透明等  |
+|  BaseActivity  |  逻辑比较简单的Activity可以继承此类  |[查看](README_ACTIVITY.md)|
+|  BaseVMActivity  |  使用ViewModel的Activity可以继承此类  |[查看](README_ACTIVITYVM.md)|
+|  BaseFragment  |  逻辑比较简单的Fragment可以继承此类  |[查看](README_FRAGMENT.md)|
+|  BaseVMFragment  |  使用ViewModel的Fragment可以继承此类  |[查看](README_FRAGMENTVM.md)|
+|  BaseViewModel  |  ViewModel继承此类  |[查看](README_VIEWMODEL.md)|
+|  FragmentPagerAdapter |  PagerAdapter父类结合TabLayout和ViewPager使用  |[查看](README_PAGERADAPTER.md)|
+|  StatusBar  |  状态栏工具类，可以实现沉浸式，透明等  |[查看](README_STATUS.md)|
 |  ActionBarView  |  自定义的标题栏  |[查看](README_BAR.md)|
 |  LiveDataBus |  事件消息总线  |[查看](README_BUS.md)|
 
