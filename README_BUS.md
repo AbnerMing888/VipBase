@@ -2,7 +2,8 @@
 
 LiveDataBus是事件总线类，支持生命周期相关和无关的事件，支持粘性事件，具体使用方式如下：
 
-发送普通事件
+### 发送普通事件
+
 ```kotlin
 
 LiveDataBus.send("send", "我发送了一条普通消息")
@@ -19,7 +20,7 @@ LiveDataBus.observe(this, "send", Observer<String> {
 
 ```
 
-发送粘性事件
+### 发送粘性事件
 
 ```kotlin
 

@@ -4,7 +4,7 @@ ActionBarView是一个自定义的标题栏View，由于在base库中已经给Ba
 
 如果你的项目没有继承BaseActivity，想单独使用，可以按照下面的方式进行。
 
-举例
+### 举例
 
 xml视图中引入
 
