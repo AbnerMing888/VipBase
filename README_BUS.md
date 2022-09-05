@@ -1,7 +1,6 @@
 # LiveDataBus
 
-LiveDataBus的具体使用方式，请查看BusActivity源码[点击直达](https://github.com/AbnerMing888/VipBase/blob/master/app/src/main/java/com/abner/base/bus/BusActivity.kt)
-
+LiveDataBus是事件总线类，支持生命周期相关和无关的事件，支持粘性事件，具体使用方式如下：
 
 发送普通事件
 ```kotlin

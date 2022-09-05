@@ -33,7 +33,7 @@ dependencies {
 大家可以看源码中的app模块，里面有每个功能使用的详细介绍。
 
 |  相关功能  |  概述  |  点击查看使用方式  |
-|  ----  |  ----  |
+|  ----  |  ----  |  ----  |
 |  BaseActivity  |  逻辑比较简单的Activity可以继承此类  |
 |  BaseVMActivity  |  使用ViewModel的Activity可以继承此类  |
 |  BaseFragment  |  逻辑比较简单的Fragment可以继承此类  |
