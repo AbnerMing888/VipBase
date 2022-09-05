@@ -1,5 +1,92 @@
 # BaseViewModel
 
+base的库中，ViewModel并未有过多的复杂逻辑，在实际的聚合层中，可以继承BaseViewModel，进行拓展一些实际的需求，比如访问网络的，数据处理相关的，在正常的需求开发中，需要注意，如果用到了ViewModel，一定要继承于BaseViewModel或它的子类。
+
+具体使用
+
+1、创建viewModel页面
+
+```kotlin
+
+class HomeViewModel :BaseViewModel(){
+    
+}
+
+```
+
+2、结合Activity使用
+
+```kotlin
+class HomeActivity : BaseVMActivity<ActivityHomeBinding,
+        HomeViewModel>(R.layout.activity_home) {
+
+    override fun initVMData() {
+        //初始化数据
+
+    }
+
+}
+```
+
+3、结合Fragment使用
+
+```kotlin
+
+class HomeFragment : BaseVMFragment<FragmentHomeBinding, 
+        HomeViewModel>(R.layout.fragment_home) {
+    
+    override fun initVMData() {
+        //初始化数据
+        
+    }
+
+}
+
+```
+
+4、viewModel里状态改变
+
+目前base库中给出了如下的状态属性，通过枚举值进行区分。
+
+枚举类
+
+```kotlin
+
+enum class StateLayoutEnum {
+    DIALOG_LOADING,    // dialog加载中
+    DIALOGD_DISMISS,//dialog隐藏
+    DATA_ERROR,      // 数据错误
+    DATA_NULL,    // 没有数据
+    NET_ERROR,//网络错误
+    HIDE,       // 隐藏
+}
+
+```
+
+改变状态
+
+viewModel中的状态改变，可以直接调用changeStateView方法。
+
+```kotlin
+changeStateView(StateLayoutEnum.DIALOG_LOADING)
+
+```
+
+5、Repository获取
+
+Repository可以进行复用，只需要在相应的ViewModel里获取不同的Repository即可。
+
+```kotlin
+
+val repository=getRepository<MainRepository>()
+
+```
+
+
+
+
+
+
 
 ## License
 
