@@ -41,7 +41,7 @@ dependencies {
 |  BaseViewModel  |  ViewModel继承此类  |
 |  FragmentPagerAdapter |  PagerAdapter父类结合TabLayout和ViewPager使用  |
 |  StatusBar  |  状态栏工具类，可以实现沉浸式，透明等  |
-|  ActionBarView  |  自定义的标题栏  |
+|  ActionBarView  |  自定义的标题栏  |[查看](README_BAR.md)|
 |  LiveDataBus |  事件消息总线  |[查看](README_BUS.md)|
 
 

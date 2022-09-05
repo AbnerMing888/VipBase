@@ -66,6 +66,32 @@ xml视图中引入
 
 除了属性相关，代码里也可以获取进行设置点击事件或者其他属性。
 
+```kotlin
+
+override fun initData() {
+
+     mBinding.actionBar.setOnRightClickListener {
+            toast("点击了右边")
+        }
+ }
+
+```
+
+|  方法  |  说明 |
+|  ----  |  ----  |
+|  setBarTitle | 	设置Title |
+|  setBarTitleColor | 	设置标题颜色 |
+|  setBarTitleSize | 	设置标题大小 |
+|  hintLeftAndRight | 	只显示标题 |
+|  getRightMenu | 	显示右侧按钮 |
+|  getBarTitle | 	获取title |
+|  getLeftMenu | 	获取左侧 |
+|  setBarLeftIcon | 	设置左边的图标及宽高距离左边的距离 |
+|  setBarRightParams | 	设置右边的宽高和距离 |
+|  hintLeftBack | 	隐藏左边的按钮 |
+|  setOnRightClickListener | 	右边点击事件 |
+|  setOnLeftClickListener | 	左边点击事件 |
+
 
 ## License
 
