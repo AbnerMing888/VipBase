@@ -100,4 +100,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private inline fun <reified activity : Activity> start() {
         startActivity(Intent(this, activity::class.java))
     }
+
 }
+

@@ -1,7 +1,6 @@
 package com.abner.base.viewmodel
 
 import android.widget.Toast
-import com.abner.base.BR
 import com.abner.base.R
 import com.abner.base.databinding.ActivityViewModelBinding
 import com.vip.base.activity.BaseVMActivity
