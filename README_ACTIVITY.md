@@ -20,7 +20,7 @@ class App : Application() {
 
 ```
 
-初始化相关属性介绍（根据实际需要，选择性使用）
+** 初始化相关属性介绍（根据实际需要，选择性使用）**
 
 |  参数  |  类型 |  说明  |
 |  ----  |  ----  |  ----  |
@@ -38,7 +38,7 @@ class App : Application() {
 
 ## 具体使用(举例)
 
-1、新建xml布局
+### 1、新建xml布局
 
 ```xml
 
@@ -57,7 +57,7 @@ class App : Application() {
 </layout>
 
 ```
-2、新建Activity页面
+### 2、新建Activity页面
 
 ```kotlin
 
@@ -70,7 +70,7 @@ class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
 
 ```
 
-设置标题
+### 设置标题
 
 父类当中封装了一套ActionBar，包含了常见的左边返回，中间标题，右边按钮的形式，如何设置一个标题呢？可以调用下面的方法，可在初始化方法中进行调用。
 
@@ -87,7 +87,7 @@ class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
 
 <img src="images/activity_title.jpg" width="200px" />
 
-设置状态栏
+### 设置状态栏
 
 顶部状态栏的颜色及背景需要根据项目的主题进行设置，除了在全局初始化之外，也可以单独的给某一个页面进行设置。
 
@@ -151,7 +151,7 @@ getActionBarView()
 
 ```
 
-设置左边
+** 设置左边  ** 
 
 左边一般就是一个返回的图标，大家可以通过下面的方式进行添加。
 
@@ -178,12 +178,12 @@ setBarLeftIcon方法总共四个参数，如下
 | w	| int	| 图片的宽 |
 | h	| int	| 图片的高 |
 
-效果
+**  效果  ** 
 
 <img src="images/activity_title3.jpg" width="200px" />
 
 
-设置右边
+**   设置右边  ** 
 
 文字设置（意思就是右边是一个文字）
 

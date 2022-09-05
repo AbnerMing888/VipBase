@@ -24,7 +24,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.vip:base:1.0.0'
+    implementation 'com.vip:base:1.0.1'
 }
 ```
 
