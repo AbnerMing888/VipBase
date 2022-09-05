@@ -183,7 +183,7 @@ setBarLeftIcon方法总共四个参数，如下
 <img src="images/activity_title3.jpg" width="200px" />
 
 
-**   设置右边  ** 
+***   设置右边  ***
 
 文字设置（意思就是右边是一个文字）
 
