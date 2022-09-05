@@ -2,8 +2,10 @@ package com.abner.base
 
 import android.app.Activity
 import android.content.Intent
+import android.widget.Toast
 import com.abner.base.bar.ActionBarImageActivity
 import com.abner.base.bar.ActionBarTextActivity
+import com.abner.base.bind.DataBindActivity
 import com.abner.base.bus.BusActivity
 import com.abner.base.databinding.ActivityMainBinding
 import com.abner.base.page.TestPagerActivity
@@ -19,9 +21,21 @@ import com.vip.base.activity.BaseActivity
  *INTRODUCE:主页
  */
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:初始化数据
+     */
     override fun initData() {
         setBarTitle("主页")
         hintLeftMenu()
+
+        mBinding.btnActivity.setOnClickListener {
+            //ViewModel使用跳转
+            Toast.makeText(
+                this, "查看MainActivity即可",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         mBinding.btnViewModel.setOnClickListener {
             //ViewModel使用跳转
@@ -31,6 +45,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         mBinding.btnRepository.setOnClickListener {
             //Repository使用
             start<TestRepositoryActivity>()
+        }
+
+        mBinding.btnDataBind.setOnClickListener {
+            //Repository使用
+            start<DataBindActivity>()
         }
 
         mBinding.btnActionBarText.setOnClickListener {

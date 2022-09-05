@@ -41,6 +41,9 @@
         <activity
             android:name=".bus.BusActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".bind.DataBindActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

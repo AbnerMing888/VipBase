@@ -19,9 +19,22 @@ abstract class BaseVMActivity<VB : ViewDataBinding, BM : BaseViewModel>(@LayoutR
 
     override fun initData() {
         mViewModel = getViewModel()!!
+        val variableId = getVariableId()
+        if (variableId != -1) {
+            mBinding.setVariable(getVariableId(), mViewModel)
+            mBinding.executePendingBindings()
+        }
         initVMData()
         observeLiveData()
         initState()
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:获取绑定的xml variable
+     */
+    open fun getVariableId(): Int {
+        return -1
     }
 
     /**
