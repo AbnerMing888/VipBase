@@ -81,7 +81,7 @@ Repository可以进行复用，只需要在相应的ViewModel里获取不同的R
 val repository=getRepository<MainRepository>()
 
 ```
-6、生命周期方法，可以再子类中重写
+6、生命周期方法，可以在子类中重写
 
 ```kotlin
 
