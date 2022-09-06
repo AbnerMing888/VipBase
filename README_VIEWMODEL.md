@@ -81,7 +81,55 @@ Repository可以进行复用，只需要在相应的ViewModel里获取不同的R
 val repository=getRepository<MainRepository>()
 
 ```
+6、生命周期方法，可以再子类中重写
 
+```kotlin
+
+  /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期初始化
+     */
+    override fun onCreate() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面可见
+     */
+    override fun onStart() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面获取焦点
+     */
+    override fun onResume() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面失去焦点
+     */
+    override fun onPause() {
+
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面不可见
+     */
+    override fun onStop() {
+
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面销毁
+     */
+    override fun onDestroy() {
+    }
+
+```
 
 
 
