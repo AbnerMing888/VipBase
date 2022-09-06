@@ -27,6 +27,7 @@ abstract class BaseVMActivity<VB : ViewDataBinding, BM : BaseViewModel>(@LayoutR
         initVMData()
         observeLiveData()
         initState()
+        lifecycle.addObserver(mViewModel)
     }
 
     /**
@@ -131,4 +132,12 @@ abstract class BaseVMActivity<VB : ViewDataBinding, BM : BaseViewModel>(@LayoutR
         return null
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        try {
+            lifecycle.removeObserver(mViewModel)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }

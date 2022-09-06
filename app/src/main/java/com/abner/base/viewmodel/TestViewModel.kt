@@ -1,5 +1,6 @@
 package com.abner.base.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.vip.base.viewmodel.BaseViewModel
 
@@ -42,4 +43,5 @@ class TestViewModel : BaseViewModel() {
             error.invoke("我是回调方式的网络请求失败")
         }
     }
+
 }

@@ -3,13 +3,14 @@ package com.vip.base.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vip.base.config.StateLayoutEnum
+import com.vip.base.observer.BaseObserver
 
 /**
  *AUTHOR:AbnerMing
  *DATE:2022/8/10
  *INTRODUCE:viewModel父类
  */
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel : ViewModel(), BaseObserver {
     /**
      * 控制状态视图的LiveData
      */
@@ -59,4 +60,48 @@ open class BaseViewModel : ViewModel() {
         return null
     }
 
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期初始化
+     */
+    override fun onCreate() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面可见
+     */
+    override fun onStart() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面获取焦点
+     */
+    override fun onResume() {
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面失去焦点
+     */
+    override fun onPause() {
+
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面不可见
+     */
+    override fun onStop() {
+        
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:生命周期页面销毁
+     */
+    override fun onDestroy() {
+    }
 }
