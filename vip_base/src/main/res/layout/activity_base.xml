@@ -9,17 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/layout_empty_or_error"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:visibility="gone" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/layout_base_child"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

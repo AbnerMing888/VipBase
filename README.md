@@ -20,11 +20,11 @@ allprojects {
     }
 }
 ```
-2、在你需要使用的Module中build.gradle文件下，引入依赖。
+2、在你需要使用的Module中build.gradle文件下，引入依赖。当前版本号：1.0.3
 
 ```groovy
 dependencies {
-    implementation 'com.vip:base:1.0.2'
+    implementation 'com.vip:base:1.0.3'
 }
 ```
 
@@ -48,6 +48,15 @@ dependencies {
 ## VipBase相关功能Demo效果图
 
 <img src="images/vip_base.jpg" width="200px" />
+
+## 注意事项
+
+```
+
+如遇到 Can't make a decor toolbar out of 问题
+解决方式：您的Theme主题,请设置NoActionBar相关的主题即可
+
+```
 
 ## 欢迎关注作者
 

@@ -2,7 +2,7 @@ package com.vip.base.activity
 
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,7 +25,7 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
     AppCompatActivity(layoutId) {
 
     private var mActionBarView: ActionBarView? = null
-    private var mLayoutError: LinearLayout? = null
+    private var mLayoutError: FrameLayout? = null
     private var mLayoutId = layoutId
     lateinit var mBinding: VB
 
@@ -36,7 +36,7 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
             darkMode(BaseConfig.statusBarDarkMode)
             statusBarColor(ContextCompat.getColor(this, BaseConfig.statusBarColor))
             setContentView(R.layout.activity_base)
-            val baseChild = findViewById<LinearLayout>(R.id.layout_base_child)
+            val baseChild = findViewById<FrameLayout>(R.id.layout_base_child)
             mLayoutError = findViewById(R.id.layout_empty_or_error)
             mActionBarView = findViewById(R.id.action_bar)
             if (mLayoutId == 0) {
@@ -55,9 +55,17 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
             initView()
             initData()
         } catch (e: Exception) {
-            e.printStackTrace()
+            collectException(e)
             noEmptyBundle()
         }
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:抛出异常信息
+     */
+    open fun collectException(e: Exception) {
+
     }
 
     /**
@@ -190,7 +198,7 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
      * AUTHOR:AbnerMing
      * INTRODUCE:获取错误或为空的view
      */
-    fun getEmptyOrErrorView(): LinearLayout {
+    fun getEmptyOrErrorView(): FrameLayout {
         return mLayoutError!!
     }
 }
