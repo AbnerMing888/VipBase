@@ -1,41 +1,5 @@
 # BaseActivity
 
-## 初始化
-
-每个项目的不同，页面和顶部状态栏也是不一样的，在基础库中父类库中给出了一个全局初始化的方法，大家可以根据自己项目的实际主题进行全局初始化，初始化尽量提前，可在Application里onCreate方法里进行。
-
-```kotlin
-
-class App : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        BaseConfig.apply {
-            actionBarBg = R.color.base_color_272F3E
-            titleColor = R.color.base_color_ffffff
-            statusBarColor = R.color.base_color_272F3E
-            statusBarDarkMode = false
-        }
-    }
-}
-
-```
-
-**初始化相关属性介绍（根据实际需要，选择性使用）**
-
-|  参数  |  类型 |  说明  |
-|  ----  |  ----  |  ----  |
-| statusBarColor	| int	| 状态栏背景颜色  |
-| statusBarDarkMode	| boolean	| 状态栏文字颜色  |
-| actionBarHeight	| int	| ActionBar的高度  |
-| actionBarBg	| int	| ActionBar的背景颜色  |
-| titleColor	| int	| ActionBar 中间title的颜色  |
-| titleSize	| float	ActionBar | 中间title的大小  |
-| leftIcon	| int	| 左侧的图标，一般是返回图片  |
-| leftIconWidth	| int	| 左边图片的宽度  |
-| leftIconHeight	| int	| 左边图片的高度  |
-| leftIconMarginLeft	| int	| 左边图片距离左边的距离  |
-
-
 ## 具体使用(举例)
 
 ### 1、新建xml布局
