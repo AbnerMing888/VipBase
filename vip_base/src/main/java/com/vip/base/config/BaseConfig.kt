@@ -1,7 +1,10 @@
 package com.vip.base.config
 
+import android.app.Application
+import android.content.Context
 import android.view.View
 import com.vip.base.R
+import com.vip.base.listener.BaseActivityListener
 
 /**
  *AUTHOR:AbnerMing
@@ -37,6 +40,34 @@ object BaseConfig {
     var leftIconHeight = 0//左边图片的高度
 
     @JvmStatic
-    var leftIconMarginLeft = 0//左边图片距离左边的距离
+    var leftIconMarginLeft = 0//左边距离左边的距离
+
+    @JvmStatic
+    var rightIconMarginRight = 0//右边距离左边的距离
+
+
+    private var mActivityListener: BaseActivityListener? = null
+    fun addActivityListener(mActivityListener: BaseActivityListener) {
+        this.mActivityListener = mActivityListener
+
+    }
+
+    fun getActivityListener(): BaseActivityListener? {
+        return mActivityListener
+    }
+
+
+    private var mApplication: Application? = null
+    fun setBaseContext(application: Application) {
+        mApplication = application
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:获取全局上下文
+     */
+    fun getBaseContext(): Context? {
+        return mApplication?.applicationContext
+    }
 
 }

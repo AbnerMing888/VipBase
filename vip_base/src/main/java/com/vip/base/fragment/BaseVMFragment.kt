@@ -41,7 +41,7 @@ abstract class BaseVMFragment<VB : ViewDataBinding, BM : BaseViewModel>(@LayoutR
      * INTRODUCE:初始化状态
      */
     private fun initState() {
-        mViewModel.mStateViewLiveData.observe(this, {
+        mViewModel.mStateViewLiveData.observe(this) {
             when (it) {
                 StateLayoutEnum.DIALOG_LOADING -> {
                     dialogLoading()
@@ -62,7 +62,7 @@ abstract class BaseVMFragment<VB : ViewDataBinding, BM : BaseViewModel>(@LayoutR
                     hide()
                 }
             }
-        })
+        }
     }
 
     /**

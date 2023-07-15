@@ -1,6 +1,7 @@
 package com.abner.base
 
 import android.app.Application
+import com.abner.base.listener.ActivityListener
 import com.vip.base.config.BaseConfig
 
 /**
@@ -18,6 +19,8 @@ class App : Application() {
             statusBarColor = R.color.purple_700
             statusBarDarkMode = false
             leftIcon = R.drawable.ic_back
+            setBaseContext(this@App)//设置全局的上下文
+            addActivityListener(ActivityListener())//全局监听基类Activity的生命周期
         }
     }
 }

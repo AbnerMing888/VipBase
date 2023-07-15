@@ -3,6 +3,7 @@ package com.vip.base.activity
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import com.vip.base.config.BaseConfig
 import com.vip.base.util.darkMode
 import com.vip.base.util.immersive
 import com.vip.base.util.statusBarColor
+import com.vip.base.util.statusBarHeight
 import com.vip.base.view.ActionBarView
 
 /**
@@ -22,7 +24,7 @@ import com.vip.base.view.ActionBarView
  *INTRODUCE:Activity父类
  */
 abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) :
-    AppCompatActivity(layoutId) {
+    AppCompatActivity() {
 
     private var mActionBarView: ActionBarView? = null
     private var mLayoutError: FrameLayout? = null
@@ -31,40 +33,31 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        try {
-            //默认状态栏为白底黑字
-            darkMode(BaseConfig.statusBarDarkMode)
-            statusBarColor(ContextCompat.getColor(this, BaseConfig.statusBarColor))
-            setContentView(R.layout.activity_base)
-            val baseChild = findViewById<FrameLayout>(R.id.layout_base_child)
-            mLayoutError = findViewById(R.id.layout_empty_or_error)
-            mActionBarView = findViewById(R.id.action_bar)
-            if (mLayoutId == 0) {
-                mLayoutId = getLayoutId()
-            }
+        //默认状态栏为白底黑字
+        darkMode(BaseConfig.statusBarDarkMode)
+        statusBarColor(ContextCompat.getColor(this, BaseConfig.statusBarColor))
+        setContentView(R.layout.activity_base)
+        val baseChild = findViewById<FrameLayout>(R.id.layout_base_child)
+        mLayoutError = findViewById(R.id.layout_empty_or_error)
+        mActionBarView = findViewById(R.id.action_bar)
 
-            if (savedInstanceState != null && getIntercept()) {
-                noEmptyBundle()
-                return
-            }
-
-            val childView = layoutInflater.inflate(mLayoutId, null)
-            baseChild.addView(childView)
-            mBinding = DataBindingUtil.bind(childView)!!
-
-            initView()
-            initData()
-        } catch (e: Exception) {
-            collectException(e)
-            noEmptyBundle()
+        if (mLayoutId == 0) {
+            mLayoutId = getLayoutId()
         }
-    }
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:抛出异常信息
-     */
-    open fun collectException(e: Exception) {
+        if (savedInstanceState != null && getIntercept()) {
+            noEmptyBundle()
+            return
+        }
+
+        val childView = layoutInflater.inflate(mLayoutId, null)
+        baseChild.addView(childView)
+        mBinding = DataBindingUtil.bind(childView)!!
+
+        BaseConfig.getActivityListener()?.onCreate(savedInstanceState, this)
+
+        initView()
+        initData()
 
     }
 
@@ -129,12 +122,8 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
         return mActionBarView!!
     }
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:隐藏标题栏
-     */
     fun hintActionBar() {
-        mActionBarView?.visibility = View.GONE
+        getActionBarView().visibility = View.GONE
     }
 
     /**
@@ -155,6 +144,7 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
     override fun onDestroy() {
         super.onDestroy()
         try {
+            BaseConfig.getActivityListener()?.onDestroy()
             LiveDataBus.removeObserve(this)
             LiveDataBus.removeStickyObserver(this)
         } catch (e: Exception) {
@@ -167,12 +157,18 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
      * AUTHOR:AbnerMing
      * INTRODUCE:透明状态栏
      */
-    fun translucentWindow(dark: Boolean) {
+    fun translucentWindow(dark: Boolean, isTop: Boolean = false) {
         try {
             immersive(0, dark)
+            if (isTop) {
+                val layoutParams = mActionBarView?.layoutParams as LinearLayout.LayoutParams
+                layoutParams.topMargin = statusBarHeight
+                mActionBarView?.layoutParams = layoutParams
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
 
     }
 
@@ -201,4 +197,25 @@ abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes layoutId: Int = 0) 
     fun getEmptyOrErrorView(): FrameLayout {
         return mLayoutError!!
     }
+
+    override fun onStart() {
+        super.onStart()
+        BaseConfig.getActivityListener()?.onStart()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        BaseConfig.getActivityListener()?.onRestart()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        BaseConfig.getActivityListener()?.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        BaseConfig.getActivityListener()?.onStop()
+    }
+
 }

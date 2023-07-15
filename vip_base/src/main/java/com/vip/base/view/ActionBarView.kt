@@ -46,11 +46,9 @@ class ActionBarView : RelativeLayout {
     }
 
     constructor(
-        context: Context,
-        attrs: AttributeSet?
+        context: Context, attrs: AttributeSet?
     ) : super(context, attrs) {
-        val ob =
-            context.obtainStyledAttributes(attrs, R.styleable.ActionBarView)
+        val ob = context.obtainStyledAttributes(attrs, R.styleable.ActionBarView)
         mBarLeftHint = ob.getBoolean(R.styleable.ActionBarView_bar_left_hint, false)
         mBarTitle = ob.getString(R.styleable.ActionBarView_bar_title)
         mBarRightText = ob.getString(R.styleable.ActionBarView_bar_right_text)
@@ -93,8 +91,7 @@ class ActionBarView : RelativeLayout {
         if (BaseConfig.actionBarBg != 0) {
             mBind!!.barLayout.setBackgroundColor(
                 ContextCompat.getColor(
-                    context,
-                    BaseConfig.actionBarBg
+                    context, BaseConfig.actionBarBg
                 )
             )
         }
@@ -120,8 +117,7 @@ class ActionBarView : RelativeLayout {
                 //设置标题颜色
                 setTextColor(
                     ContextCompat.getColor(
-                        context,
-                        BaseConfig.titleColor
+                        context, BaseConfig.titleColor
                     )
                 )
             }
@@ -165,23 +161,39 @@ class ActionBarView : RelativeLayout {
                 if (BaseConfig.leftIcon != View.NO_ID) {
                     setBarLeftIcon(
                         BaseConfig.leftIcon,
+                        BaseConfig.leftIconMarginLeft,
                         BaseConfig.leftIconWidth,
-                        BaseConfig.leftIconHeight,
-                        BaseConfig.leftIconMarginLeft
+                        BaseConfig.leftIconHeight
                     )
                 }
                 mBind!!.barLayoutBack.setOnClickListener {
-                    //返回，销毁页面
-                    (mContext as Activity).finish()
+                    if (mOnLeftClickListener != null) {
+                        mOnLeftClickListener!!.leftClick()
+                    } else {
+                        //返回，销毁页面
+                        (mContext as Activity).finish()
+                    }
                 }
             }
         }
 
-        //设置右边的颜色
-        if (mBarRightTextColor != 0) {
-            mBind!!.barTvRight.setTextColor(mBarRightTextColor!!)
-        }
 
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:获取BarLayout
+     */
+    fun getBarLayout(): RelativeLayout {
+        return mBind!!.barLayout
+    }
+
+    /**
+     * AUTHOR:AbnerMing
+     * INTRODUCE:设置背景
+     */
+    fun setBarBgColor(color: Int) {
+        mBind!!.barLayout.setBackgroundColor(color)
     }
 
     /**
@@ -195,6 +207,12 @@ class ActionBarView : RelativeLayout {
             mBind!!.barTvRight.text = mBarRightText
         }
 
+        //设置右边的颜色
+        if (mBarRightTextColor != 0) {
+            mBind!!.barTvRight.setTextColor(mBarRightTextColor!!)
+        }
+
+
         //右侧设置图片格式
         if (mBarRightIcon != null) {
             mBind!!.barTvRight.visibility = View.VISIBLE
@@ -202,11 +220,19 @@ class ActionBarView : RelativeLayout {
 
         }
 
-        val layoutParams = mBind!!.barTvRight.layoutParams as RelativeLayout.LayoutParams
+        val layoutParams = mBind!!.barTvRight.layoutParams as LayoutParams
+
+        //设置距离右边距离 全局
+        if (BaseConfig.rightIconMarginRight != 0) {
+            //设置距离右边的距离
+            layoutParams.rightMargin = BaseConfig.rightIconMarginRight
+        }
+
         //设置距离右边距离
         if (mBarRightIconMargin != 0f) {
             layoutParams.rightMargin = mBarRightIconMargin.toInt()
         }
+
         //设置宽
         if (mBarRightIconWidth != 0f) {
             layoutParams.width = mBarRightIconWidth.toInt()
@@ -293,22 +319,27 @@ class ActionBarView : RelativeLayout {
      * AUTHOR:AbnerMing
      * INTRODUCE:设置左边的图标及宽高距离左边的距离
      */
-    fun setBarLeftIcon(icon: Int, l: Int = 0, w: Int = 0, h: Int = 0): ActionBarView {
+    fun setBarLeftIcon(icon: Int = View.NO_ID, l: Int = 0, w: Int = 0, h: Int = 0): ActionBarView {
         if (icon != View.NO_ID) {
             mBind!!.barIvBack.setImageResource(icon)
-            if (l != 0) {
-                val layoutParams = mBind!!.barIvBack.layoutParams as LinearLayout.LayoutParams
-                layoutParams.apply {
-                    width = w
-                    height = h
-                    leftMargin = l
-                }
-                mBind!!.barIvBack.layoutParams = layoutParams
+        }
+        val layoutParams = mBind!!.barIvBack.layoutParams as LinearLayout.LayoutParams
+        layoutParams.apply {
+            if (w != 0) {
+                width = w
             }
-            mBind!!.barLayoutBack.setOnClickListener {
-                if (mOnLeftClickListener != null) {
-                    mOnLeftClickListener!!.leftClick()
-                }
+            if (h != 0) {
+                height = h
+            }
+            if (l != 0) {
+                leftMargin = l
+            }
+        }
+        mBind!!.barIvBack.layoutParams = layoutParams
+
+        mBind!!.barLayoutBack.setOnClickListener {
+            if (mOnLeftClickListener != null) {
+                mOnLeftClickListener!!.leftClick()
             }
         }
         return this
@@ -320,9 +351,13 @@ class ActionBarView : RelativeLayout {
      */
     fun setBarRightParams(r: Int = 0, w: Int = 0, h: Int = 0): ActionBarView {
         if (r != 0) {
-            val layoutParams = mBind!!.barTvRight.layoutParams as RelativeLayout.LayoutParams
-            layoutParams.width = w
-            layoutParams.height = h
+            val layoutParams = mBind!!.barTvRight.layoutParams as LayoutParams
+            if (w != 0) {
+                layoutParams.width = w
+            }
+            if (h != 0) {
+                layoutParams.height = h
+            }
             layoutParams.rightMargin = r
             mBind!!.barTvRight.layoutParams = layoutParams
         }
