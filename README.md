@@ -32,11 +32,11 @@ allprojects {
 }
 ```
 
-2、在你需要使用的Module中build.gradle文件下，引入依赖。当前版本号：1.0.3
+2、在你需要使用的Module中build.gradle文件下，引入依赖。当前版本号：**1.0.4**
 
 ```groovy
 dependencies {
-    implementation 'com.vip:base:1.0.3'
+    implementation 'com.vip:base:1.0.4'
 }
 ```
 
@@ -143,7 +143,7 @@ class App : Application() {
  *INTRODUCE:基类BaseActivity生命周期监听,可以在这里处理一些业务
  */
 class ActivityListener : BaseActivityListener {
-    
+
     override fun onCreate(savedInstanceState: Bundle?, context: Context) {
 
     }
@@ -187,7 +187,6 @@ class ActivityListener : BaseActivityListener {
 ## VipBase相关功能Demo效果图
 
 <img src="images/vip_base.jpg" width="200px" />
-
 
 ## 欢迎关注作者
 

@@ -2,8 +2,5 @@ apply from: "${rootProject.rootDir}/common.gradle"
 apply plugin: 'kotlin-kapt'
 project.ext.setAppDefaultConfig project
 dependencies {
-
-//    implementation 'com.vip:base:1.0.3'
-
-    implementation project(":vip_base")
+    implementation 'com.vip:base:1.0.4'
 }
