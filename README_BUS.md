@@ -14,6 +14,7 @@ LiveDataBus.send("send", "我发送了一条普通消息")
 
 
 ```kotlin
+
 LiveDataBus.observe(this, "send", Observer<String> {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })

@@ -1,6 +1,6 @@
 # StatusBar
 
-## 结合Base使用
+## 结合BaseActivity使用
 
 设置状态栏
 
@@ -28,10 +28,12 @@ setDarkTitle(
 代码 (状态栏文字颜色是黑色和白色)
 
 ```kotlin
+
 translucentWindow(false)
+
 ```
 
-## 独立使用
+## 独立使用,不使用BaseActivity提供的
 
 改变状态栏背景
 
@@ -47,7 +49,9 @@ statusBarColor(ContextCompat.getColor(this, R.color.color_666666))
 改变状态栏文字颜色为白色
 
 ```kotlin
+
 darkMode(false)
+
 ```
 
 效果

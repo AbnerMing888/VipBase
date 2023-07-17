@@ -1,5 +1,8 @@
 # BaseActivity
 
+BaseActivity就是一个普通的Activity基类，没有和ViewModel进行关联，有一些特别简单的页面，用不到ViewModel
+的时候，就可以让Activity继承此类。
+
 ## 具体使用(举例)
 
 ### 1、新建xml布局
@@ -8,29 +11,49 @@
 
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-  
-  <data>
-    
-  </data>
-  
-  <androidx.constraintlayout.widget.ConstraintLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
-    
-  </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
 ```
-### 2、新建Activity页面
+
+### 2、新建Activity页面，直接继承即可。
 
 ```kotlin
 
 class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
-    
+
     override fun initData() {
         //初始化数据
     }
 }
+
+```
+
+**可实现的其他方法**
+
+```
+initData方法是必须要实现的，其他方法，看自己需求，选择性使用：
+
+initView：初始化View，当用到databinding后，也就没获取View的形式了，一般很少用到
+
+hintLeftMenu：隐藏左边的按钮
+
+hintActionBar：隐藏标题栏
+
+getActionBarView：获取标题栏View视图（可以设置左右视图和中间的标题样式）
+
+setDarkTitle：动态改变状态栏颜色和标题
+
+setBarTitle：设置标题
+
 
 ```
 
@@ -40,10 +63,10 @@ class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
 
 ```kotlin
 
-    override fun initData() {
-        //设置标题
-        setBarTitle("主页")
-    }
+override fun initData() {
+    //设置标题
+    setBarTitle("主页")
+}
 
 ```
 
@@ -85,7 +108,7 @@ translucentWindow(false)
 ```kotlin
 
 class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
-    
+
     override fun initData() {
         //初始化数据
     }
@@ -94,16 +117,14 @@ class TestActivity : BaseActivity<ActivityTestBinding>(R.layout.activity_test) {
 
 ```
 
-也可以通过getLayoutId来进行传递
+也可以通过getLayoutId来进行传递，二者选其一即可。
 
 ```kotlin
     override fun getLayoutId(): Int {
-        return R.layout.activity_main
-    }
+    return R.layout.activity_main
+}
 
 ```
-
-注意：这两种方式都可以进行传递xml，一是为了方便大家使用，二是为了解决navagation和Fragment一起使用时造成的一个bug。
 
 获取ActionBarView
 
@@ -115,21 +136,21 @@ getActionBarView()
 
 ```
 
-**设置左边** 
+**设置左边**
 
 左边一般就是一个返回的图标，大家可以通过下面的方式进行添加。
 
 ```kotlin
 
-          getActionBarView().apply {
-            //设置左边
-            setBarLeftIcon(R.mipmap.ic_launcher, 10, 50, 50)
+getActionBarView().apply {
+    //设置左边
+    setBarLeftIcon(R.mipmap.ic_launcher, 10, 50, 50)
 
-            setOnLeftClickListener {
-                //左边的点击事件
-                
-            }
-        }
+    setOnLeftClickListener {
+        //左边的点击事件
+
+    }
+}
 
 ```
 
@@ -137,12 +158,12 @@ setBarLeftIcon方法总共四个参数，如下
 
 |  参数  |  类型 |  说明  |
 |  ----  |  ----  |  ----  |
-| icon	| int	| 图标 |
-| l	| int	| 距离左边的距离 |
-| w	| int	| 图片的宽 |
-| h	| int	| 图片的高 |
+| icon    | int    | 图标 |
+| l    | int    | 距离左边的距离 |
+| w    | int    | 图片的宽 |
+| h    | int    | 图片的高 |
 
-**效果** 
+**效果**
 
 <img src="images/activity_title3.jpg" width="200px" />
 
@@ -155,18 +176,18 @@ setBarLeftIcon方法总共四个参数，如下
 
 ```kotlin
 
- getActionBarView().apply {
-            //获取TextView
-            val rightMenu = getRightMenu("右边")
-            //设置文字颜色
-            rightMenu.setTextColor(ContextCompat.getColor(context, R.color.base_color_ffffff))
-            //设置其他属性 比如 文字大小  点击操作等
-            
-            //右边按钮的点击操作
-            setOnRightClickListener {
+getActionBarView().apply {
+    //获取TextView
+    val rightMenu = getRightMenu("右边")
+    //设置文字颜色
+    rightMenu.setTextColor(ContextCompat.getColor(context, R.color.base_color_ffffff))
+    //设置其他属性 比如 文字大小  点击操作等
 
-            }
-        }
+    //右边按钮的点击操作
+    setOnRightClickListener {
+
+    }
+}
 
 ```
 
@@ -180,16 +201,16 @@ setBarLeftIcon方法总共四个参数，如下
 
 ```kotlin
  getActionBarView().apply {
-            //获取TextView
-            getRightMenu(ContextCompat.getDrawable(context,R.mipmap.ic_launcher)!!)
-            //设置距离右边的距离及宽和高
-            setBarRightParams(10, 50, 50)
+    //获取TextView
+    getRightMenu(ContextCompat.getDrawable(context, R.mipmap.ic_launcher)!!)
+    //设置距离右边的距离及宽和高
+    setBarRightParams(10, 50, 50)
 
-            //右边按钮的点击操作
-            setOnRightClickListener {
+    //右边按钮的点击操作
+    setOnRightClickListener {
 
-            }
-        }
+    }
+}
 
 ```
 
@@ -200,6 +221,15 @@ setBarLeftIcon方法总共四个参数，如下
 注：ActionBarView的具体属性，还请参照自定义View中的ActionBarView介绍。
 
 
+## 如何获取控件
+
+xml中定义好id之后，直接使用mBinding加上对应控件的id即可，比如控件id为tv_name，获取如下：
+
+```kotlin
+
+mBinding.tvName
+
+```
 
 ## License
 

@@ -8,8 +8,8 @@ base的库中，ViewModel并未有过多的复杂逻辑，在实际的聚合层�
 
 ```kotlin
 
-class HomeViewModel :BaseViewModel(){
-    
+class HomeViewModel : BaseViewModel() {
+
 }
 
 ```
@@ -17,6 +17,7 @@ class HomeViewModel :BaseViewModel(){
 2、结合Activity使用
 
 ```kotlin
+
 class HomeActivity : BaseVMActivity<ActivityHomeBinding,
         HomeViewModel>(R.layout.activity_home) {
 
@@ -32,12 +33,12 @@ class HomeActivity : BaseVMActivity<ActivityHomeBinding,
 
 ```kotlin
 
-class HomeFragment : BaseVMFragment<FragmentHomeBinding, 
+class HomeFragment : BaseVMFragment<FragmentHomeBinding,
         HomeViewModel>(R.layout.fragment_home) {
-    
+
     override fun initVMData() {
         //初始化数据
-        
+
     }
 
 }
@@ -68,7 +69,9 @@ enum class StateLayoutEnum {
 viewModel中的状态改变，可以直接调用changeStateView方法。
 
 ```kotlin
+
 changeStateView(StateLayoutEnum.DIALOG_LOADING)
+
 
 ```
 
@@ -78,63 +81,69 @@ Repository可以进行复用，只需要在相应的ViewModel里获取不同的R
 
 ```kotlin
 
-val repository=getRepository<MainRepository>()
+val repository = getRepository<MainRepository>()
 
 ```
+
 6、生命周期方法，可以在子类中重写
 
 ```kotlin
 
-  /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期初始化
-     */
-    override fun onCreate() {
-    }
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期初始化
+ */
+override fun onCreate() {
+}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期页面可见
-     */
-    override fun onStart() {
-    }
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期页面可见
+ */
+override fun onStart() {
+}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期页面获取焦点
-     */
-    override fun onResume() {
-    }
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期页面获取焦点
+ */
+override fun onResume() {
+}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期页面失去焦点
-     */
-    override fun onPause() {
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期页面失去焦点
+ */
+override fun onPause() {
 
-    }
+}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期页面不可见
-     */
-    override fun onStop() {
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期页面不可见
+ */
+override fun onStop() {
 
-    }
+}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:生命周期页面销毁
-     */
-    override fun onDestroy() {
-    }
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:生命周期页面销毁
+ */
+override fun onDestroy() {
+}
 
 ```
 
+7、如何调用ViewModel的方法或属性
 
+在对应的Activity里或Fragment里如下调用，doHttp是定义在ViewModel里的方法。
 
+```kotlin
 
+mViewModel.doHttp()
 
+```
 
 ## License
 

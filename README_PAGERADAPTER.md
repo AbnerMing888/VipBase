@@ -8,7 +8,7 @@
 
 xml布局
 
-```kotlin
+```xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,21 +18,15 @@ xml布局
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/gwm_dp_50"
-            app:tabMode="scrollable"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.tabs.TabLayout android:id="@+id/tab_layout"
+            android:layout_width="match_parent" android:layout_height="@dimen/gwm_dp_50"
+            app:tabMode="scrollable" app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <androidx.viewpager.widget.ViewPager android:id="@+id/vp_view"
+            android:layout_width="match_parent" android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
@@ -46,28 +40,27 @@ xml布局
 activity或者fragment里进行设置
 
 ```kotlin
-
+//Fragment集合
 private val mPageList = arrayListOf<Fragment>(
-     FlowFragment(),
-     ShapeFragment(),
-     SearchFragment(),
-     ActionBarFragment(),
-     KeyboardFragment()
- )
+    FlowFragment(),
+    ShapeFragment(),
+    SearchFragment(),
+    ActionBarFragment(),
+    KeyboardFragment()
+)
+//标题集合 和Fragment保持一致
 private val mPageTitle = arrayListOf("流式布局", "Shape背景", "自定义搜索框", "标题栏", "数字键盘")
 override fun initData() {
-        val fragmentPagerAdapter = FragmentPagerAdapter(mPageList, mPageTitle)
-        mBinding.vpView.adapter = fragmentPagerAdapter
-        mBinding.tabLayout.setupWithViewPager(mBinding.vpView)
-    }
+    val fragmentPagerAdapter = FragmentPagerAdapter(mPageList, mPageTitle)
+    mBinding.vpView.adapter = fragmentPagerAdapter
+    mBinding.tabLayout.setupWithViewPager(mBinding.vpView)
+}
 
 ```
 
 效果
 
 <img src="images/activity_vp.jpg" width="200px" />
-
-
 
 ## License
 

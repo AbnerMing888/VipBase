@@ -1,5 +1,8 @@
 # BaseFragment
 
+BaseFragment就是一个普通的Fragment基类，没有和ViewModel进行关联，有一些特别简单的页面，用不到ViewModel
+的时候，就可以让Fragment继承此类。
+
 ### 具体使用（案例）
 
 #### 1、新建xml布局
@@ -38,7 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
 #### 初始化View
 
-无论是继承BaseActivity或者是BaseVMActivity，都会有一个必要要实现的初始化方法，因为考虑到实际的项目中采用基本上是DataBinding，很少再有初始化View的用法，当然父类当中也给提供了，大家重写initView方法即可。
+因为考虑到实际的项目中采用基本上是DataBinding，很少再有初始化View的用法，当然父类当中也给提供了，大家想用的话，重写initView方法即可。
 
 ```kotlin
 /**
@@ -50,32 +53,6 @@ override fun initView() {
     
 }
 ```
-
-#### 初始化数据
-
-BaseFragment中
-
-```kotlin
-
-    override fun initData() {
-        //初始化数据
-    }
-
-```
-
-BaseVMFragment中
-
-```kotlin
-  override fun initVMData() {
-        //初始化数据
-
-    }
-
-```
-
-
-
-
 
 
 ## License

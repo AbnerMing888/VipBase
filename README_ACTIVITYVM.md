@@ -1,27 +1,29 @@
 # BaseVMActivity
 
+BaseVMActivity继承于BaseActivity， BaseActivity里的方法都可以使用，适用于和ViewModel绑定的页面使用。
+
 和BaseActivity两种继承方式上，大部分方法都是通用的，在使用ViewModel的时候，有几个比较特殊的方法需要简单介绍一下。
 
 **监听ViewModel数据改变**
 
-**需要重写observeLiveData方法。**
+**需要重写observeLiveData方法，可以在这里监听ViewModel里的数据变化**
 
 ```kotlin
 
-    override fun observeLiveData() {
-        super.observeLiveData()
-        
-    }
+override fun observeLiveData() {
+    super.observeLiveData()
+
+}
 
 ```
 
-**获取绑定的xml variable。**
+**获取绑定的xml variable。当xml和ViewModel绑定时，需要重写这个方法，传递BR**
 
 ```kotlin
 
-     override fun getVariableId(): Int {
-        return super.getVariableId()
-    }
+override fun getVariableId(): Int {
+    return super.getVariableId()
+}
 
 ```
 
@@ -31,51 +33,54 @@
 
 ```kotlin
 
- /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:dialog加载
-     */
-    open fun dialogLoading() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:dialog加载
+ */
+open fun dialogLoading() {}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:dialog隐藏
-     */
-    open fun dialogDismiss() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:dialog隐藏
+ */
+open fun dialogDismiss() {}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:数据错误
-     */
-    open fun dataError() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:数据错误
+ */
+open fun dataError() {}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:数据为空
-     */
-    open fun dataEmpty() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:数据为空
+ */
+open fun dataEmpty() {}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:网络错误或请求错误
-     */
-    open fun netError() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:网络错误或请求错误
+ */
+open fun netError() {}
 
-    /**
-     * AUTHOR:AbnerMing
-     * INTRODUCE:隐藏某些布局或者缺省页等
-     */
-    open fun hide() {}
+/**
+ * AUTHOR:AbnerMing
+ * INTRODUCE:隐藏某些布局或者缺省页等
+ */
+open fun hide() {}
 
 ```
 
-### 获取视图
+### 获取控件
 
-xml中定义好id之后，直接使用mBinding加上控件的id即可。
+xml中定义好id之后，直接使用mBinding加上对应控件的id即可，比如控件id为tv_name，获取如下：
 
 ```kotlin
+
 mBinding.tvName
+
 ```
+
 ### 获取ViewModel
 
 在继承BaseVMActivity的时候，需要调用ViewModel里的方法或属性，直接调用mViewModel即可。
@@ -85,7 +90,6 @@ mBinding.tvName
 mViewModel.doHttp()
 
 ```
-
 
 ## License
 
