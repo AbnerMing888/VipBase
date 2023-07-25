@@ -13,20 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/gwm_dp_20"
-        android:paddingRight="@dimen/gwm_dp_20">
+        android:paddingLeft="@dimen/vip_dp_20"
+        android:paddingRight="@dimen/vip_dp_20">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/gwm_dp_20"
+            android:layout_marginTop="@dimen/vip_dp_20"
             android:text="@{data.oneWayContent}" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/gwm_dp_20"
+            android:layout_marginTop="@dimen/vip_dp_20"
             android:hint="双向绑定"
             android:text="@={data.twoWayContent}" />
 
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/gwm_dp_20"
+            android:layout_marginTop="@dimen/vip_dp_20"
             android:onClick="@{data.clickListener}"
             android:text="获取双向绑定数据" />
 

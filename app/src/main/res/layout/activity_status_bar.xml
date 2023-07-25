@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/gwm_dp_200"
+            android:layout_height="@dimen/vip_dp_200"
             android:background="@color/base_color_272F3E"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

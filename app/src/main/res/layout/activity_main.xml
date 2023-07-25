@@ -4,87 +4,108 @@
     <data>
 
 
-
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/gwm_dp_20"
-        android:paddingRight="@dimen/gwm_dp_20">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_activity"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Activity简单继承使用" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/vip_dp_20"
+            android:paddingRight="@dimen/vip_dp_20">
 
-        <Button
-            android:id="@+id/btn_view_model"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ViewModel使用" />
+            <Button
+                android:id="@+id/btn_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity简单继承使用" />
 
-        <Button
-            android:id="@+id/btn_repository"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="结合Repository使用" />
+            <Button
+                android:id="@+id/btn_view_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewModel使用" />
 
-        <Button
-            android:id="@+id/btn_data_bind"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DataBiding使用" />
+            <Button
+                android:id="@+id/btn_repository"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="结合Repository使用" />
 
-        <Button
-            android:id="@+id/btn_action_bar_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="标题栏右侧文字按钮" />
+            <Button
+                android:id="@+id/btn_data_bind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DataBiding使用" />
 
-        <Button
-            android:id="@+id/btn_action_bar_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="标题栏右侧图片按钮" />
+            <Button
+                android:id="@+id/btn_action_bar_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="标题栏右侧文字按钮" />
 
-        <Button
-            android:id="@+id/btn_status_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="透明状态栏" />
+            <Button
+                android:id="@+id/btn_action_bar_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="标题栏右侧图片按钮" />
 
-        <Button
-            android:id="@+id/btn_status_bar_change"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="状态栏改变" />
+            <Button
+                android:id="@+id/btn_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="透明状态栏" />
 
-        <Button
-            android:id="@+id/btn_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BaseFragmentPagerAdapter使用" />
+            <Button
+                android:id="@+id/btn_status_bar_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="状态栏改变" />
 
-        <Button
-            android:id="@+id/btn_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fragment简单继承使用" />
+            <Button
+                android:id="@+id/btn_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BaseFragmentPagerAdapter使用" />
 
-        <Button
-            android:id="@+id/btn_fragment_view_model"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fragment—ViewModel使用" />
+            <Button
+                android:id="@+id/btn_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment简单继承使用" />
 
-        <Button
-            android:id="@+id/btn_bus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="事件总线使用" />
+            <Button
+                android:id="@+id/btn_fragment_view_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment—ViewModel使用" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_bus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="事件总线使用" />
+
+            <ImageView
+                android:id="@+id/iv_code"
+                android:layout_width="@dimen/vip_dp_100"
+                android:layout_height="@dimen/vip_dp_100"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/vip_dp_20"
+                android:src="@drawable/wx_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/vip_dp_10"
+                android:gravity="center"
+                android:text="看在我这么努力的份上，微信赞赏随意，\n给个鼓励好不好~"
+                android:textColor="@color/base_color_272F3E" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

@@ -194,6 +194,12 @@ class ActivityListener : BaseActivityListener {
 
 <img src="images/abner.jpg" width="200px" />
 
+## 赞赏作者
+
+看在作者这么努力的份上，赞赏随意，给个鼓励好不好~
+
+<img src="images/wx_code.jpg" width="200px" />
+
 ## License
 
 ```

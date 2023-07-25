@@ -8,19 +8,19 @@
         <RelativeLayout
             android:id="@+id/barLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/gwm_dp_44">
+            android:layout_height="@dimen/vip_dp_44">
 
             <LinearLayout
                 android:id="@+id/barLayoutBack"
-                android:layout_width="@dimen/gwm_dp_50"
+                android:layout_width="@dimen/vip_dp_50"
                 android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/barIvBack"
-                    android:layout_width="@dimen/gwm_dp_20"
-                    android:layout_height="@dimen/gwm_dp_20"
+                    android:layout_width="@dimen/vip_dp_20"
+                    android:layout_height="@dimen/vip_dp_20"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/gwm_dp_16" />
+                    android:layout_marginLeft="@dimen/vip_dp_16" />
 
             </LinearLayout>
 
@@ -28,12 +28,12 @@
                 android:id="@+id/barTvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/gwm_dp_50"
-                android:layout_marginRight="@dimen/gwm_dp_50"
+                android:layout_marginLeft="@dimen/vip_dp_50"
+                android:layout_marginRight="@dimen/vip_dp_50"
                 android:drawablePadding="5dp"
                 android:gravity="center"
                 android:textColor="@color/base_color_272F3E"
-                android:textSize="@dimen/gwm_sp_16" />
+                android:textSize="@dimen/vip_sp_16" />
 
 
             <TextView
@@ -42,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/gwm_dp_16"
-                android:textSize="@dimen/gwm_sp_14"
+                android:layout_marginRight="@dimen/vip_dp_16"
+                android:textSize="@dimen/vip_sp_14"
                 android:visibility="gone" />
 
         </RelativeLayout>
